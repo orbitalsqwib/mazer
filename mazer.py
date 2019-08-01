@@ -1,5 +1,5 @@
 # < m a z e r >
-# Programmed by Eugene Long.
+# Programmed by Eugene Long (S10193060J). Latest change: 2/8/2019 @ 2:03AM
 
 #======================= DESCRIPTION =========================#
 # Mazer is a cool maze solving game that runs on Python 3.7!
@@ -65,7 +65,7 @@ class Maze:
 
     # NOTE: class init declaration
     def __init__(self, mazeArray, mazeStart, mazeEnd):
-        '''Create a maze with a 2D list with maze data, a 1D list containing the start coords,
+        '''Create a maze object with a 2D list with maze data, a 1D list containing the start coords,
         and a 1D list containing the end coords'''
         self.maze, self.start, self.end = mazeArray, mazeStart, mazeEnd
 
@@ -152,7 +152,7 @@ class Maze:
 
     def getMazeDigest(self):
         '''Returns the MD5 hash of the maze stored by the caller in hexadecimal format.'''
-        encStrRep = self.mazeToText().encode('utf-8') # encode 
+        encStrRep = self.mazeToText().encode('utf-8') # encode to utf-8 format
         digest = hashlib.md5(encStrRep).hexdigest()
         return digest
 
@@ -408,6 +408,7 @@ class Maze:
 
 class Leaderboard:
     def __init__(self, l_file):
+        '''Creates a leaderboard object from the text file specified in <l_file>'''
         self.boards = []
         self.l_file = l_file
         try:
@@ -461,6 +462,7 @@ class Leaderboard:
 
 class Board:
     def __init__(self, digest_id, players):
+        '''Creates a Board object using a string representing the Board's id and a list of Player objects'''
         self.digest_id = digest_id
         self.players = players
 
@@ -479,6 +481,7 @@ class Board:
 
 class Player:
     def __init__(self, playerID, score):
+        '''Creates a new Player instance using a string representing the Player nickname and a float representing score'''
         self.playerID, self.score = str(playerID), float(score)
 
     def betterThanPlayer(self, Player):
