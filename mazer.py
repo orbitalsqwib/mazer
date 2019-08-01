@@ -1,5 +1,5 @@
 # < m a z e r >
-# Programmed by Eugene Long (S10193060J). Latest change: 2/8/2019 @ 2:03AM
+# Programmed by Eugene Long. Latest change: 2/8/2019
 
 #======================= DESCRIPTION =========================#
 # Mazer is a cool maze solving game that runs on Python 3.7!
