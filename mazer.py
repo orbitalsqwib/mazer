@@ -1,4 +1,4 @@
-# < < M A Z E R> >
+# < m a z e r >
 # Programmed by Eugene Long.
 
 #======================= DESCRIPTION =========================#
@@ -25,8 +25,8 @@ globalPrintMode = 0 # Defaults to no highlighting
 # Set the variable above according to your preference and
 # where you would run this program:
 # 0: No color highlighting
-# 1: Color highlighting for Terminal
-# 2: Color highlighting for IDLE
+# 1: Color highlighting for Terminal (Mac/Linux)
+# 2: Color highlighting for IDLE (Windows/Mac)
 #=============================================================#
 
 #======================= CLASS INFO ==========================#
