@@ -23,6 +23,11 @@ simply navigate to the directory where the `mazer.py` file is and run
 
 have fun!
 
+### p.s
+to load the maze file, simply enter the name of the .csv file that you want to load, e.g:
+
+`Enter name of the data file: sample_maze.csv`
+
 ## cool stuff
 > _bored of the dreary monotone color? want a fresher experience?_
 
