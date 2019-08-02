@@ -220,7 +220,7 @@ class Maze:
                 r_maze = [] # Read-maze
                 for line in f.readlines():
                     # strips whitespace, seperates the string into a list of characters and appends it to r_maze
-                    r_maze.append(line.strip().split(','))
+                    r_maze.append(list(line.strip()))
 
             # Validate maze is square or rectangle
             validate_shape = len(r_maze[0])

@@ -3,7 +3,7 @@ _a simple maze game, made in python. runs on terminals with python 3.7._
 ## features
 
 in < m a z e r >, you can:
-- _load mazes from comma(,) delimited csv files!_
+- _load mazes from csv files!_
 - _play through them as fast as you can!_
 - _configure mazes however you want!_
 - _export the currently loaded maze for your friends to try!_
