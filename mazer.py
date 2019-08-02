@@ -406,12 +406,12 @@ class Maze:
 ########### NOTE: LEADERBOARD & PLAYER CLASS DEFINITION START ###########
 
 class Leaderboard:
-    def __init__(self, l_file):
-        '''Creates a leaderboard object from the text file specified in <l_file>'''
+    def __init__(self, l_filename):
+        '''Creates a leaderboard object from the text file with the filename specified in <l_filename>'''
         self.boards = []
-        self.l_file = l_file
+        self.l_filename = l_filename
         try:
-            with open(l_file, 'r') as f:
+            with open(l_filename, 'r') as f:
                 raw = f.read().split("\n;\n") # Get raw data
             
             # Parse raw data into proper objects (Basically splitting lots of delimiters)
@@ -430,7 +430,7 @@ class Leaderboard:
 
         # Make new file if no leaderboard file found
         except FileNotFoundError:
-            with open(l_file, 'w') as f:
+            with open(l_filename, 'w') as f:
                 f.write("")
 
     def getBoard(self, digest_id):
@@ -455,7 +455,7 @@ class Leaderboard:
                 board_load.append(f"{p.playerID}|{str(p.score)}")
             load.append("\n".join(board_load))
 
-        with open(self.l_file, 'w') as f:
+        with open(self.l_filename, 'w') as f:
             f.write("\n;\n".join(load))
             f.truncate()
 
