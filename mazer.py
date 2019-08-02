@@ -1,5 +1,5 @@
 # < m a z e r >
-# Programmed by Eugene Long. Latest change: 2/8/2019
+# Programmed by Eugene Long.
 
 #======================= DESCRIPTION =========================#
 # Mazer is a cool maze solving game that runs on Python 3.7!
@@ -193,14 +193,13 @@ class Maze:
         '''Prints the maze to the display on a SenseHat. Requires this program to
         be running on a Raspberry Pi with SenseHat attached.'''
         for r in range(8):
-            for c in range(8):
-                s.set_pixel(c,r,127,127,127) # Set background to white, regardless of size of maze
-
-        for r in range(len(self.maze)):
-                for c in range(len(self.maze[r])):
+                for c in range(8):
                     c_dict = {"X": [127,127,127], "O":[0, 0, 0], "A":[127,0,0], "B":[0,127,0]}
                     rgb = c_dict[self.maze[r][c]]
-                    s.set_pixel(c,r,rgb[0],rgb[1],rgb[2]) # Print actual maze data on top
+                    if r < len(self.maze) and c < len(self.maze):
+                        s.set_pixel(c,r,rgb[0],rgb[1],rgb[2]) # Print maze if can be printed
+                    else:
+                        s.set_pixel(c,r,127,127,127) # Set rest to white
 
 ########## NOTE: CLASS APPLICATIONS ###########
 
@@ -582,14 +581,6 @@ def checkPiAvailable(s_available):
         
 # NOTE: MAIN
 def Main():
-    # Check if sense_hat can be imported
-    try:
-        from sense_hat import SenseHat
-        s = SenseHat()
-        s_available = True
-    except:
-        s_available = False
-
     # Setup for IDLE color highlighting
     if globalPrintMode == 2:
         color = sys.stdout.shell
@@ -610,6 +601,14 @@ def Main():
 # NOTE: GLOBAL VARIABLES
 currentMaze = Maze([], [0, 0], [0, 0])
 leaderboard, pi_leaderboard = Leaderboard("leaderboard.txt"), Leaderboard("pi_leaderboard.txt")
+
+# Check if sense_hat can be imported
+try:
+    from sense_hat import SenseHat
+    s = SenseHat()
+    s_available = True
+except:
+    s_available = False
 
 # Run Main
 Main()
