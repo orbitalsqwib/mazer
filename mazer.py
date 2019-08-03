@@ -352,14 +352,14 @@ class Maze:
         with open(file_name, 'w') as f:
             raw = self.mazeToText().split()
             for line in raw:
-                f.write(",".join(list(line)) + "\n")
+                f.write("".join(list(line)) + "\n")
             f.truncate()
         print(f"File {file_name} created with {len(raw)} records.")
 
     def createNewMaze(self):
         '''Allows the user to generate a new maze object and overwrites the current maze with it'''
         if input("This will empty the current maze. Are you sure [Y/N]: ").upper() == "Y":
-            new_xy = input("Enter dimensions of new maze. Max dimensions: (33,33) (row, column): ").split(",")
+            new_xy = input("Enter dimensions of new maze. Min dimensions: (2,2), Max dimensions: (33,33). (row, column): ").split(",")
             # Validation! Check for proper number of elements, if they are digits, in range, etc.
             if len(new_xy) == 2 and new_xy[0].isdigit() and new_xy[1].isdigit() and IntInRange(int(new_xy[0]), 2, 33) and IntInRange(int(new_xy[1]), 2, 33):
                 
